@@ -1,0 +1,24 @@
+version: '3'
+services:
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /etc/letsencrypt:/etc/letsencrypt
+      - /var/lib/letsencrypt:/var/lib/letsencrypt
+  certbot:
+    image: certbot/certbot:latest
+    container_name: certbot
+    command: "certonly --email $EMAIL --standalone --agree-tos -d $DOMAIN --dry-run"
+    volumes:
+      - /etc/letsencrypt:/etc/letsencrypt
+      - /var/lib/letsencrypt:/var/lib/letsencrypt
+        #environment:
+        # - DOMAIN=${DOMAIN}
+        # - EMAIL=${EMAIL}
+    depends_on:
+      - nginx
