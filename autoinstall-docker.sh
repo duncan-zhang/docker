@@ -15,6 +15,6 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 echo "[TASK 4] local user docker run access rights"
 sudo groupadd docker
-users=$(who | awk '{print $1}' | sort | uniq)
+USER=$(who | awk '{print $1}' | sort | uniq)
 sudo usermod -aG docker $USER
 
