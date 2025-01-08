@@ -19,6 +19,6 @@ USER=$(who | awk '{print $1}' | sort | uniq)
 sudo usermod -aG docker $USER
 
 echo -e "\033[34m[TASK 5] Remove shell script files\033[0m"
-rm -f auto-install-docker.sh get-docker.sh && cd .. && rm -rf docker
+rm -f auto-install-docker.sh get-docker.sh
 
 echo -e "\033[34m===============Automatic installation completed===============\033[0m"
