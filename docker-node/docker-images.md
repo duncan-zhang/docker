@@ -48,7 +48,7 @@ apk add curl
 # 不啟用快取
 apk add --no-cache curl
 ```
-- `--no-cache`(常用)映像檔不會留下快取檔案，減少鏡像體積。
+- `--no-cache` (常用)映像檔不會留下快取檔案，減少鏡像體積。
 #### 3. 移除套件
 ```sh
 apk del <套件名稱>
